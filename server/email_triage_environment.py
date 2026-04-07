@@ -69,15 +69,18 @@ class EmailTriageEnvironment(Environment):
         global _emails, _index
 
         if force_done or _index >= len(_emails):
-            return EmailObservation(
-                email_id="episode_complete",
-                subject="",
-                sender="",
-                body_snippet="",
-                timestamp=datetime.now().isoformat(),
-                reward=reward,
-                done=True,
-            )
+          return EmailObservation(
+        email_id="episode_complete",
+        subject="",
+        sender="",
+        body_snippet="",
+        timestamp=datetime.now().isoformat(),
+        thread_id=None,
+        sender_reputation=0.0,
+        is_time_sensitive=False,
+        reward=reward,
+        done=True,
+        )
 
         email = _emails[_index]
         return EmailObservation(
