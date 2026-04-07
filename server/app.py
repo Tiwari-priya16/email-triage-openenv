@@ -19,4 +19,4 @@ def root():
     return {"message": "API is running. Use /web endpoints."}
 
 # Mount API
-app.mount("/web", inner_app)
+# app.mount("/web", inner_app)
