@@ -3,13 +3,20 @@ from openenv.core.env_server import create_fastapi_app
 from models import EmailObservation, TriageAction
 from server.email_triage_environment import EmailTriageEnvironment
 
-# Create OpenEnv app
+# Inner OpenEnv app
 inner_app = create_fastapi_app(
     EmailTriageEnvironment,
     TriageAction,
     EmailObservation,
 )
 
-# Mount it under /web (REQUIRED FOR HF)
+# Main app
 app = FastAPI()
+
+# ROOT FIX (IMPORTANT)
+@app.get("/")
+def root():
+    return {"message": "API is running. Use /web endpoints."}
+
+# Mount API
 app.mount("/web", inner_app)
