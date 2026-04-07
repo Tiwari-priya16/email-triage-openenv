@@ -41,7 +41,8 @@ class SimpleEnvClient:
         self.session.close()
 
 
-ENV_URL = os.getenv("ENV_URL", "http://127.0.0.1:7860")
+ENV_URL = os.getenv("ENV_URL", "http://127.0.0.1:7860")   #=> use this in HF spaces , to run locally use below line
+#ENV_URL = "https://priyatiwari16-email-triage-openenv.hf.space/web"
 env_client = SimpleEnvClient(base_url=ENV_URL)
 
 TASKS = ["easy", "medium", "hard"]
