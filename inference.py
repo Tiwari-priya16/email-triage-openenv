@@ -19,7 +19,7 @@ llm_client = OpenAI(base_url=API_BASE_URL, api_key=HF_TOKEN)
 import requests
 
 class SimpleEnvClient:
-    def __init__(self, base_url="http://127.0.0.1:8000"):
+    def __init__(self, base_url="http://127.0.0.1:7860"):
         self.base_url = base_url.rstrip("/")
         self.session = requests.Session()
 
@@ -41,7 +41,7 @@ class SimpleEnvClient:
         self.session.close()
 
 
-ENV_URL = os.getenv("ENV_URL", "http://127.0.0.1:8000")
+ENV_URL = os.getenv("ENV_URL", "http://127.0.0.1:7860")
 env_client = SimpleEnvClient(base_url=ENV_URL)
 
 TASKS = ["easy", "medium", "hard"]

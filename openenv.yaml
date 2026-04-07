@@ -3,7 +3,7 @@ name: email-triage-openenv
 description: Enterprise email triage environment with 3 tiered tasks, dense rewards, thread awareness, sender reputation and deterministic graders.
 type: fastapi
 app: server.app:app
-port: 8000
+port: 7860
 tags:
   - email
   - triage
